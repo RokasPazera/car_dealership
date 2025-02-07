@@ -6,7 +6,6 @@ export const databaseCreateUser = (username, email, password, isAdmin) => {
 }
 
 export const databaseGetUser = (email) => {
-    console.log(email);
     return db.prepare(`SELECT * FROM users WHERE email = ?`).get(email);
 }
 

@@ -33,7 +33,7 @@ export const userCreation = async (req, res) => {
 }
 
 export const getUser = (req, res) => {
-    let email = req.body.email;
+    const email = req.body.email;
     if (!email) {
         return res.status(400).json({"error": "email is required"});
     }
