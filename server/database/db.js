@@ -72,18 +72,20 @@ const userDummyData = () => {
             username: "admin",
             email: "admin@gmail.com",
             password: "$2a$10$x9/cwbWqxHhKZuBmd08Js.vPV1gZRhXSm7qUZCr2v9R07bttsalo6",
+            isAdmin: 1,
         },
         {
             username: "test2",
             email: "test2@gmail.com",
             password: "$2a$10$x9/cwbWqxHhKZuBmd08Js.vPV1gZRhXSm7qUZCr2v9R07bttsalo6",
+            isAdmin: 0,
         },
     ]
 
-    const insertData = db.prepare(`INSERT INTO users (username, email, password) VALUES (?, ?, ?)`);
+    const insertData = db.prepare(`INSERT INTO users (username, email, password, isAdmin) VALUES (?, ?, ?, ?)`);
 
     userData.forEach((user) => {
-        insertData.run(user.username, user.email, user.password);
+        insertData.run(user.username, user.email, user.password, user.isAdmin);
     });
 }
 
@@ -91,6 +93,7 @@ const userDummyData = () => {
 createCarDatabase();
 createUserDatabase();
 createFavouritesDatabase();
+
 
 
 //userDummyData();

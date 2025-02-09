@@ -18,5 +18,3 @@ export const databaseDeleteCar = (id) => {
     const sql = db.prepare(`DELETE FROM cars WHERE id = ?`);
     sql.run(id);
 };
-
-export default {databaseCreateCar, databaseGetCars, databaseUpdateCar, databaseDeleteCar};

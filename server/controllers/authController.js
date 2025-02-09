@@ -7,11 +7,11 @@ export const handleLogin = async (req, res) => {
 
     const user = databaseGetUser(email);
 
-    if (!user) return res.status(401).json({message: "invalid credentials"});
+    if (!user) return res.status(401).json({error: "invalid credentials"});
 
     const match = await bcrypt.compare(password, user.password);
 
-    if (!match) return res.status(401).json({message: "invalid credentials"});
+    if (!match) return res.status(401).json({error: "invalid credentials"});
 
     const token = jwt.sign(
         {
